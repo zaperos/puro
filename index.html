@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zagadka 1</title>
+  <title>Zagadki Puro</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -63,14 +63,14 @@
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ---- HASH poprawnej odpowiedzi (dla "puro") ----
+    // ---- HASH poprawnej odpowiedzi ----
     const correctHash = "b9a711b675cd258f85c4383f2e0c842d9127fee0149cc24f2acdc8d6f82afc90";
 
     async function checkAnswer() {
       const answer = document.getElementById("answer").value;
       const result = await sha256(answer);
       if (result === correctHash) {
-        window.location.href = "zagadka2.html"; // przejście do kolejnej strony
+        window.location.href = "start.html"; // przejście do kolejnej strony
       } else {
         document.getElementById("feedback").textContent = "Nieprawidłowa odpowiedź. Spróbuj ponownie.";
       }
@@ -78,3 +78,4 @@
   </script>
 </body>
 </html>
+
