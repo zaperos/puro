@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PURO Quest – Zakończenie</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  p.quote {
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    max-width: 500px;
+    margin-bottom: 40px;
+  }
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #333;
+  }
+</style>
+</head>
+<body>
+  <h1>Gratulacje! 🎉</h1>
+<p>Bądź pierwszy i wypełnij formularz, tak abym miał pewność, że trafiłeś tu znając wszystkie odpowiedz- literówki dozwolone ;) 
+<br><br><p><b>Hasło finałowe:</b></p>
+  <p class="quote">"Każda zagadka ma rozwiązanie — trzeba tylko wystarczająco chcieć je znaleźć."</p>
+<p><b>Koniec Hasła finałowego</b></p>
+
+  <form id="quizForm">
+    <p>Wpisz wszystkie swoje odpowiedzi (1–11) oraz końcowe hasło konkursowe:</p>
+
+    <!-- Pola 1–11 -->
+    <label>Odp 1 Ulica Hotelu Puro Praga:</label>
+    <input type="text" name="odp1" required>
+
+    <label>Odp 2 Comp Set- hotel:</label>
+    <input type="text" name="odp2" required>
+
+    <label>Odp 3 Firma pieca:</label>
+    <input type="text" name="odp3" required>
+
+    <label>Odp 4 Browar Hinta:</label>
+    <input type="text" name="odp4" required>
+
+    <label>Odp 5 Nazwa pomieszczenia z kartką:</label>
+    <input type="text" name="odp5" required>
+
+    <label>Odp 6 Firma terminala:</label>
+    <input type="text" name="odp6" required>
+
+    <label>Odp 7 Płyn do dezynfekcji:</label>
+    <input type="text" name="odp7" required>
+
+    <label>Odp 8 Drink:</label>
+    <input type="text" name="odp8" required>
+
+    <label>Odp 9 Alergen:</label>
+    <input type="text" name="odp9" required>
+
+    <label>Odp 10 Autorka Obrazu:</label>
+    <input type="text" name="odp10" required>
+
+    <label>Odp 11 Sos do miesa w burgerze:</label>
+    <input type="text" name="odp11" required>
+
+    <label>Hasło finałowe:</label>
+    <input type="text" name="haslo" required>
+
+    <button type="submit">Wyślij maila</button>
+  </form>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      let body = "";
+      for (let [key, value] of data.entries()) {
+        body += key + ": " + value + "%0D%0A";
+      }
+      const mailto = "mailto:lukasz.zaprzelski@purohotel.pl?subject=PURO%20Quest%20-%20Odpowiedzi&body=" + body;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>

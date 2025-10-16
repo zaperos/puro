@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zagadka 1</title>
+  <title>Zagadka 9 Alergen</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -19,6 +19,10 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }    
+img {
       max-width: 400px;
       text-align: center;
     }
@@ -46,11 +50,17 @@
 </head>
 <body>
   <div class="card">
-    <h2>Zagadka 1</h2>
-    <p>Jak nazywa się sieć hoteli, w której pracujesz?</p>
+<br><br><br>
+    <h2>Zagadka 9 Alergen</h2>
+	<img src="alergen.jpg">
+    <p>Jaki alergen kryje się pod numerem 14 w naszej karcie restauracji HINT</p>
     <input type="text" id="answer" placeholder="Wpisz odpowiedź">
     <button onclick="checkAnswer()">Sprawdź</button>
     <p id="feedback"></p>
+    <b>*odpowiedź małymi literami, jedno słowo!!!</b><br>
+	<b>Bez znaków specjalnych</b>
+<p>*Odpowiedź dokładnie tak jak w karcie, w liczbie mnogiej, bez polskiego znaku ;)</p>
+
   </div>
 
   <script>
@@ -63,14 +73,14 @@
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ---- HASH poprawnej odpowiedzi (dla "puro") ----
-    const correctHash = "b9a711b675cd258f85c4383f2e0c842d9127fee0149cc24f2acdc8d6f82afc90";
+    // ---- HASH poprawnej odpowiedzi ----
+    const correctHash = "72b4fe3ff6508067cc3f4be528b657a622abc62fe8f13c1570fe3ec397db45da";
 
     async function checkAnswer() {
       const answer = document.getElementById("answer").value;
       const result = await sha256(answer);
       if (result === correctHash) {
-        window.location.href = "zagadka2.html"; // przejście do kolejnej strony
+        window.location.href = "10obraz.html"; // przejście do kolejnej strony
       } else {
         document.getElementById("feedback").textContent = "Nieprawidłowa odpowiedź. Spróbuj ponownie.";
       }

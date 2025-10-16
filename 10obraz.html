@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zagadka 1</title>
+  <title>Zagadka 10 Obraz</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,7 +11,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+;
       margin: 0;
     }
     .card {
@@ -19,6 +19,10 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }    
+img {
       max-width: 400px;
       text-align: center;
     }
@@ -46,11 +50,17 @@
 </head>
 <body>
   <div class="card">
-    <h2>Zagadka 1</h2>
-    <p>Jak nazywa się sieć hoteli, w której pracujesz?</p>
+
+    <h2>Zagadka 10 Obraz</h2>
+	<img src="obraz.jpg">
+    <p>Na sali konferencyjnej wisi wielki obraz, z wtopionymi zabawkami. Podaj nazwisko Autorki</p>
     <input type="text" id="answer" placeholder="Wpisz odpowiedź">
     <button onclick="checkAnswer()">Sprawdź</button>
     <p id="feedback"></p>
+    <b>*odpowiedź małymi literami, jedno słowo!!!</b><br>
+	<b>Bez znaków specjalnych</b>
+<p>Tytuł obrazu odnosi się do (pewnego filmu ;) ) Andrieja Tarkovskiego z 1979 roku, w którym jest scena surrealistycznego snu głównego bohatera. Film zabarwiony na brunatny kolor pokazuje wiele elementów zatopionych pod wodą oraz w błocie - metalowe śmieci, monety, karabin, a nawet fragment obrazu średniowiecznego, które symbolizują ziemskie dobra takie jak władze, wiedzę i bogactwo. Artystka oddaje atmosferę tej sceny za pomocą własnych środków oraz wypracowanej autorskiej techniki, polegającą na tworzeniu powierzchni obrazów oraz rzeźb ze stopionego plastiku z małych zabawek typu “Kinder Niespodzianka”. Autorka topi je częściowo pozostawiając częściowo widoczną ich pierwotną formę, dzięki czemu otrzymuję strukturę kolażu. Zabawki wtapia nie tylko w płótna, ale także w dywany czy inne obiekty przestrzenne tworząc dzięki temu instalacje będące na granicy malarstwa i rzeźby. Jej twórczość tematycznie skupia się przede wszystkim na krytyce konsumpcjonizmu i pop-kultury.</p>
+
   </div>
 
   <script>
@@ -63,14 +73,14 @@
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ---- HASH poprawnej odpowiedzi (dla "puro") ----
-    const correctHash = "b9a711b675cd258f85c4383f2e0c842d9127fee0149cc24f2acdc8d6f82afc90";
+    // ---- HASH poprawnej odpowiedzi ----
+    const correctHash = "72ce5fd8c4823af635e1cc6e89759797e4a1381441de0c18ddf8f0eb4055c16b";
 
     async function checkAnswer() {
       const answer = document.getElementById("answer").value;
       const result = await sha256(answer);
       if (result === correctHash) {
-        window.location.href = "zagadka2.html"; // przejście do kolejnej strony
+        window.location.href = "11sos.html"; // przejście do kolejnej strony
       } else {
         document.getElementById("feedback").textContent = "Nieprawidłowa odpowiedź. Spróbuj ponownie.";
       }

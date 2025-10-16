@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zagadka 1</title>
+  <title>Zagadka 7 Dezynfekcja</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -19,6 +19,10 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }    
+img {
       max-width: 400px;
       text-align: center;
     }
@@ -46,11 +50,17 @@
 </head>
 <body>
   <div class="card">
-    <h2>Zagadka 1</h2>
-    <p>Jak nazywa się sieć hoteli, w której pracujesz?</p>
+<br><br><br>
+    <h2>Zagadka 7 Dezynfekcja</h2>
+	<img src="dezynfekcja.jpg">
+    <p>Podaj nazwę środka do dezynfekcji używanego przez housekeeping</p>
     <input type="text" id="answer" placeholder="Wpisz odpowiedź">
     <button onclick="checkAnswer()">Sprawdź</button>
     <p id="feedback"></p>
+    <b>*odpowiedź małymi literami, jedno słowo!!!</b><br>
+	<b>Bez znaków specjalnych</b>
+<p>*Środka, nie producenta ;)- pierwszy wyraz bez kodu</p>
+
   </div>
 
   <script>
@@ -63,14 +73,14 @@
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ---- HASH poprawnej odpowiedzi (dla "puro") ----
-    const correctHash = "b9a711b675cd258f85c4383f2e0c842d9127fee0149cc24f2acdc8d6f82afc90";
+    // ---- HASH poprawnej odpowiedzi ----
+    const correctHash = "217fa9d0a6d681fef6986e7c1cd04bb0996e994d777d5f1ea41a39af8b0732c3";
 
     async function checkAnswer() {
       const answer = document.getElementById("answer").value;
       const result = await sha256(answer);
       if (result === correctHash) {
-        window.location.href = "zagadka2.html"; // przejście do kolejnej strony
+        window.location.href = "8drink.html"; // przejście do kolejnej strony
       } else {
         document.getElementById("feedback").textContent = "Nieprawidłowa odpowiedź. Spróbuj ponownie.";
       }

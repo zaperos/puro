@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zagadka 1</title>
+  <title>Zagadka 1 Praga</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -19,6 +19,10 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }    
+img {
       max-width: 400px;
       text-align: center;
     }
@@ -46,11 +50,14 @@
 </head>
 <body>
   <div class="card">
-    <h2>Zagadka 1</h2>
-    <p>Jak nazywa się sieć hoteli, w której pracujesz?</p>
+    <h2>Zagadka 1 Praga</h2>
+	<img src="praga.jpg">
+    <p>Podaj nazwe ulicy przy której powstanie Hotel Puro Praga (być może w 2026r)</p>
     <input type="text" id="answer" placeholder="Wpisz odpowiedź">
     <button onclick="checkAnswer()">Sprawdź</button>
     <p id="feedback"></p>
+    <b>*odpowiedź małymi literami!!!</b>
+	<b>Bez znaków specjalnych</b>
   </div>
 
   <script>
@@ -63,14 +70,14 @@
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // ---- HASH poprawnej odpowiedzi (dla "puro") ----
-    const correctHash = "b9a711b675cd258f85c4383f2e0c842d9127fee0149cc24f2acdc8d6f82afc90";
+    // ---- HASH poprawnej odpowiedzi ----
+    const correctHash = "747cfabdc036b0ea03e683470cbc5a976a0661cd645f0a40562a46c3d3666424";
 
     async function checkAnswer() {
       const answer = document.getElementById("answer").value;
       const result = await sha256(answer);
       if (result === correctHash) {
-        window.location.href = "zagadka2.html"; // przejście do kolejnej strony
+        window.location.href = "2compset.html"; // przejście do kolejnej strony
       } else {
         document.getElementById("feedback").textContent = "Nieprawidłowa odpowiedź. Spróbuj ponownie.";
       }
